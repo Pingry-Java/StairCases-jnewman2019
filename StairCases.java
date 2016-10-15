@@ -1,8 +1,8 @@
 /**
  * This class will print out two different sets of 'x's, one ascending, and one descending
- * Each set will print the number of rows taken from the user
+ * Each set will print the number of rows taken from the user recursively
  * @author Jeremy Newman
- * @version 0.1
+ * @version 1.1
  */
 import java.util.Scanner;
 
@@ -29,18 +29,14 @@ public class StairCases
    */
   public static void printAscending(int size)
   {
-  	for (int r = 0; r < size; r++)
+	if (size > 0)
+		printAscending(size - 1);
+	for (int n = 0; n < size; n++)
   	{
-  		for (int s = 0; s <= r; s++)
-  		{
-  			System.out.print('x');
-  		}
-  		System.out.println();
+  		System.out.print('x');
   	}
+  	System.out.println();
   }
-  	
-  
-  
 
   /**
    * This method prints x's in an ascending triangle
@@ -48,13 +44,12 @@ public class StairCases
    */
   public static void printDescending(int size)
   {
-  	for (int r = 0; r < size; r++)
+  	for (int n = 0; n < size; n++)
   	{
-  		for (int s = size; s > r; s--)
-  		{
   		System.out.print('x');
-  		}
-  		System.out.println();
   	}
+  	System.out.println();
+  	if (size > 0)
+  		printDescending(size - 1);
   }
 }
